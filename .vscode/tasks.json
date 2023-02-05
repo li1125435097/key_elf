@@ -1,0 +1,11 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "cp",
+			"type": "shell",
+			"command":"g++ D:/codePlace/aikey/main.cpp"
+		}
+		
+	]
+}
