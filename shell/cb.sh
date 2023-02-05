@@ -3,7 +3,7 @@
 root=$1
 path=$2
 
-g++ $path
+g++ -fexec-charset=gbk $path
 echo ''
 echo ''
 $root/a.exe
