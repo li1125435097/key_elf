@@ -9,14 +9,21 @@ callBackCmd=$2
 [ $3 ] && intervalSecond=$3 || intervalSecond=3
 
 cmd="ls -l $filePath"
-flag=`$cmd | awk '{print \$5}'`
+flag=`$cmd | awk '{print \$5\$8}'`
 
-echo 'serving......'
+
+echo "---------------------------------即时编译启动成功-------------------------------"
+echo "监控路径=$filePath"
+echo "回调命令=$callBackCmd"
+echo "监控粒度=$intervalSecond 秒"
+echo "---------------------------------------------------------------------------------"
+echo ""
+
 while [[ 1 ]]
 do
     sleep $intervalSecond
-    cflag=`$cmd | awk '{print \$5}'`
-    if [[ $cflag -ne $flag ]]
+    cflag=`$cmd | awk '{print \$5\$8}'`
+    if [[ $cflag != $flag ]]
     then 
         # echo '改变'
         flag=$cflag
